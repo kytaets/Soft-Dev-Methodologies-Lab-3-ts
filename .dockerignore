@@ -1,0 +1,22 @@
+# Node modules should be reinstalled inside the container
+node_modules
+
+# Build output — built in container
+dist
+
+# Logs and environment
+*.log
+.env
+
+# OS / Editor / Git / Docker-specific files
+.DS_Store
+.vscode
+.idea
+.git
+.gitignore
+npm-debug.log
+docker-compose.yml
+docker-compose.override.yml
+
+# Cache
+*.tsbuildinfo

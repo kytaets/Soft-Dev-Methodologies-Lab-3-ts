@@ -53,7 +53,7 @@ simple-ts-app/
 1. Клонуйте репозиторій:
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/kytaets/Soft-Dev-Methodologies-Lab-3-ts
 cd simple-ts-app
 ```
 

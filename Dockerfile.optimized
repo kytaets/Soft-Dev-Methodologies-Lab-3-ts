@@ -1,19 +1,16 @@
-# Optimized Dockerfile (з кешуванням шарів)
 FROM node:18
 
 WORKDIR /app
 
-# Копіюємо файли залежностей спочатку
-COPY package*.json ./
+# Обов’язково копіюємо також package-lock.json
+COPY package.json package-lock.json ./
 COPY tsconfig.json ./
 
-# Встановлюємо залежності
-RUN npm ci --only=production
+# Використовуємо npm ci для production-білду
+RUN npm ci
 
-# Копіюємо вихідний код
 COPY src/ ./src/
 
-# Збираємо проект
 RUN npm run build
 
 EXPOSE 3000

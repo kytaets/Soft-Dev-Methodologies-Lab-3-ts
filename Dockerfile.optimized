@@ -1,0 +1,21 @@
+# Optimized Dockerfile (з кешуванням шарів)
+FROM node:18
+
+WORKDIR /app
+
+# Копіюємо файли залежностей спочатку
+COPY package*.json ./
+COPY tsconfig.json ./
+
+# Встановлюємо залежності
+RUN npm ci --only=production
+
+# Копіюємо вихідний код
+COPY src/ ./src/
+
+# Збираємо проект
+RUN npm run build
+
+EXPOSE 3000
+
+CMD ["npm", "start"]
